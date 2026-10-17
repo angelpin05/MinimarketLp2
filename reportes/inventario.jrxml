@@ -1,0 +1,75 @@
+<jasperReport name="inventario" language="java" pageWidth="595" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="535" leftMargin="30" rightMargin="30" topMargin="30" bottomMargin="30" uuid="2925214b-7a9f-4488-b6fc-fc2989079d61">
+	<style name="Base" default="true" fontName="DejaVu Sans" fontSize="10.0"/>
+	<parameter name="FILTRO" class="java.lang.String"/>
+	<parameter name="RESUMEN" class="java.lang.String"/>
+	<parameter name="EMISION" class="java.lang.String"/>
+	<field name="codigo" class="java.lang.String"/>
+	<field name="nombre" class="java.lang.String"/>
+	<field name="categoria" class="java.lang.String"/>
+	<field name="stock" class="java.lang.String"/>
+	<field name="minimo" class="java.lang.String"/>
+	<field name="precio" class="java.lang.String"/>
+	<title height="85">
+		<element kind="staticText" uuid="3780eccd-d4a9-4642-91dc-3b8b5716ab31" x="0" y="0" width="535" height="30" fontSize="18.0" bold="true">
+			<text><![CDATA[Reporte de inventario]]></text>
+		</element>
+		<element kind="textField" uuid="b6e90966-13b5-49fe-833c-b296209fa2ff" x="0" y="33" width="535" height="25" textAdjust="StretchHeight" blankWhenNull="true">
+			<expression><![CDATA[$P{FILTRO}]]></expression>
+		</element>
+		<element kind="textField" uuid="d1dea17d-d376-4c20-a005-f502ec26378f" x="0" y="60" width="535" height="20" textAdjust="StretchHeight" blankWhenNull="true">
+			<expression><![CDATA["Emitido en Lima: "+$P{EMISION}]]></expression>
+		</element>
+	</title>
+	<columnHeader height="28">
+		<element kind="staticText" uuid="f84a4cd3-276a-4c51-95df-27a0fcf25469" x="0" y="0" width="60" height="26" fontSize="10.0" bold="true">
+			<text><![CDATA[Código]]></text>
+		</element>
+		<element kind="staticText" uuid="89a39d45-cbbb-42cd-972f-fd86ce12cce0" x="65" y="0" width="170" height="26" fontSize="10.0" bold="true">
+			<text><![CDATA[Producto]]></text>
+		</element>
+		<element kind="staticText" uuid="a76ab97b-9c07-4265-83cd-2bd58dd6e3b4" x="240" y="0" width="115" height="26" fontSize="10.0" bold="true">
+			<text><![CDATA[Categoría]]></text>
+		</element>
+		<element kind="staticText" uuid="867d693a-80f4-4f5d-be82-8eb20c6adcc6" x="360" y="0" width="40" height="26" fontSize="10.0" bold="true">
+			<text><![CDATA[Stock]]></text>
+		</element>
+		<element kind="staticText" uuid="1ed57021-7bc1-4593-bb16-532538433abc" x="405" y="0" width="55" height="26" fontSize="10.0" bold="true">
+			<text><![CDATA[Mínimo]]></text>
+		</element>
+		<element kind="staticText" uuid="cffd1372-d6f1-4d68-938d-44c06b397c7d" x="465" y="0" width="65" height="26" fontSize="10.0" bold="true">
+			<text><![CDATA[S/]]></text>
+		</element>
+	</columnHeader>
+	<detail>
+		<band height="38">
+			<element kind="textField" uuid="8fb279e0-c521-4906-b0ee-82fd77e58eab" x="0" y="0" width="60" height="36" textAdjust="StretchHeight" blankWhenNull="true">
+				<expression><![CDATA[$F{codigo}]]></expression>
+			</element>
+			<element kind="textField" uuid="fa7dc16e-2467-4e9c-96a4-41285e71e0b3" x="65" y="0" width="170" height="36" textAdjust="StretchHeight" blankWhenNull="true">
+				<expression><![CDATA[$F{nombre}]]></expression>
+			</element>
+			<element kind="textField" uuid="c9c580f0-fef9-4e7d-aaa7-cdfa68fcd507" x="240" y="0" width="115" height="36" textAdjust="StretchHeight" blankWhenNull="true">
+				<expression><![CDATA[$F{categoria}]]></expression>
+			</element>
+			<element kind="textField" uuid="750e0cc9-bb6a-44d0-9521-3a8ef02c4b7e" x="360" y="0" width="40" height="36" textAdjust="StretchHeight" blankWhenNull="true">
+				<expression><![CDATA[$F{stock}]]></expression>
+			</element>
+			<element kind="textField" uuid="df458dbd-d396-4a5f-9927-1ebe2c2b58d1" x="405" y="0" width="55" height="36" textAdjust="StretchHeight" blankWhenNull="true">
+				<expression><![CDATA[$F{minimo}]]></expression>
+			</element>
+			<element kind="textField" uuid="4c9ef267-d0a3-413f-a804-f0bc24a41386" x="465" y="0" width="65" height="36" textAdjust="StretchHeight" blankWhenNull="true">
+				<expression><![CDATA[$F{precio}]]></expression>
+			</element>
+		</band>
+	</detail>
+	<pageFooter height="24">
+		<element kind="textField" uuid="2aa30abd-da61-4661-9c4b-021214978782" x="440" y="0" width="95" height="24" textAdjust="StretchHeight" blankWhenNull="true">
+			<expression><![CDATA["Página "+$V{PAGE_NUMBER}]]></expression>
+		</element>
+	</pageFooter>
+	<summary height="40">
+		<element kind="textField" uuid="d2d2fda7-71c0-41f3-bcb9-3322d8317c65" x="0" y="8" width="535" height="30" textAdjust="StretchHeight" blankWhenNull="true">
+			<expression><![CDATA[$P{RESUMEN}]]></expression>
+		</element>
+	</summary>
+</jasperReport>

@@ -1,0 +1,9 @@
+<!DOCTYPE html><html lang="es" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security"><head th:fragment="head(titulo)">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title th:text="${titulo}+' - Minimarket LP2'">Minimarket LP2</title><link rel="stylesheet" th:href="@{/css/app.css}"></head>
+<body><header th:fragment="nav"><nav aria-label="Navegación principal"><a class="brand" th:href="@{/}">Minimarket LP2</a><div class="links">
+<a sec:authorize="hasRole('ADMIN')" th:href="@{/categorias}">Categorías</a><a sec:authorize="hasRole('ADMIN')" th:href="@{/productos}">Productos</a>
+<a th:href="@{/clientes}">Clientes</a><a th:href="@{/ventas/nueva}">Nueva venta</a><a th:href="@{/consultas/ventas}">Ventas</a><a th:href="@{/consultas/inventario}">Inventario</a>
+</div><form method="post" th:action="@{/logout}"><span sec:authentication="name">usuario</span><button class="secondary" type="submit">Salir</button></form></nav></header>
+<div th:fragment="messages" class="notice" role="status" th:if="${mensaje}" th:text="${mensaje}"></div>
+<div th:fragment="errors" class="errors" role="alert" th:if="${#fields.hasAnyErrors()}"><p th:each="e:${#fields.allErrors()}" th:text="${e}"></p></div>
+</body></html>

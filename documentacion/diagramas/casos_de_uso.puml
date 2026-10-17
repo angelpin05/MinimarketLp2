@@ -1,0 +1,36 @@
+@startuml
+!pragma layout smetana
+left to right direction
+skinparam dpi 200
+skinparam backgroundColor white
+skinparam defaultFontName DejaVu Sans
+skinparam defaultFontSize 14
+skinparam shadowing false
+actor Administrador as A
+actor Vendedor as V
+rectangle "Minimarket LP2" {
+  usecase "CUS01\nMantener categorías" as C1
+  usecase "CUS02\nMantener productos" as C2
+  usecase "CUS03\nMantener clientes" as C3
+  usecase "CUS04\nConsultar ventas" as C4
+  usecase "CUS05\nConsultar inventario" as C5
+  usecase "CUS06\nReporte de ventas" as C6
+  usecase "CUS07\nReporte de inventario" as C7
+  usecase "CUS08\nRegistrar venta" as C8
+  usecase "CUS09\nIniciar y cerrar sesión" as C9
+}
+A --> C1
+A --> C2
+A --> C3
+A --> C4
+A --> C5
+A --> C6
+A --> C7
+A --> C8
+A --> C9
+V --> C3
+V --> C4
+V --> C5
+V --> C8
+V --> C9
+@enduml

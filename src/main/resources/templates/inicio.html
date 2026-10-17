@@ -1,0 +1,6 @@
+<!DOCTYPE html><html lang="es" xmlns:th="http://www.thymeleaf.org"><head th:replace="~{fragments/layout :: head('Inicio')}"></head><body><header th:replace="~{fragments/layout :: nav}"></header>
+<main><p class="eyebrow">RESUMEN DEL NEGOCIO</p><h1>Ventas e inventario</h1><p>Registra una venta, consulta las existencias y revisa el historial.</p>
+<dl class="metrics"><div><dt>Productos registrados</dt><dd th:text="${productos}"></dd></div><div><dt>Clientes registrados</dt><dd th:text="${clientes}"></dd></div>
+<div><dt>Ventas registradas</dt><dd th:text="${ventas}"></dd></div><div><dt>Productos con stock bajo</dt><dd th:text="${bajoStock}"></dd></div></dl>
+<a class="button" th:href="@{/ventas/nueva}">Registrar una venta</a><h2>Flujo de trabajo</h2><ol><li>El administrador registra categorías y productos.</li><li>El vendedor elige al cliente y los productos de la venta.</li><li>El sistema calcula el total, guarda la venta y actualiza el stock.</li></ol>
+<p class="muted">Los precios se expresan en soles. El registro de venta es interno y no constituye un comprobante tributario.</p></main></body></html>

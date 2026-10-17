@@ -1,0 +1,9 @@
+<!DOCTYPE html><html lang="es" xmlns:th="http://www.thymeleaf.org"><head th:replace="~{fragments/layout :: head('Mantenimiento')}"></head><body><header th:replace="~{fragments/layout :: nav}"></header><main class="narrow">
+<h1 th:text="${id} == null ? 'Nuevo registro' : 'Editar registro'"></h1><form method="post" th:action="${id} == null ? @{/productos/guardar} : @{/productos/{id}/guardar(id=${id})}" th:object="${form}">
+<div th:replace="~{fragments/layout :: errors}"></div><label for="codigo">Código</label><input id="codigo" type="text" th:field="*{codigo}" required maxlength="30">
+<label for="nombre">Nombre</label><input id="nombre" type="text" th:field="*{nombre}" required maxlength="120">
+<label for="precio">Precio S/</label><input id="precio" type="number" th:field="*{precio}" required min="0.01" max="99999999.99" step="0.01">
+<label for="stock">Stock actual</label><input id="stock" type="number" th:field="*{stock}" required min="0" max="2147483647">
+<label for="stockMinimo">Stock mínimo</label><input id="stockMinimo" type="number" th:field="*{stockMinimo}" required min="0" max="2147483647">
+<input type="hidden" th:field="*{version}"><label for="categoriaId">Categoría</label><select id="categoriaId" th:field="*{categoriaId}" required><option value="">Selecciona</option><option th:each="c:${categorias}" th:value="${c.id}" th:text="${c.nombre} + (${c.activo} ? '' : ' (inactiva)')"></option></select><p class="muted">Si cambió el stock mientras editabas, recarga el formulario.</p><label class="check"><input type="checkbox" th:field="*{activo}">Activo</label>
+<div class="form-actions"><button type="submit">Guardar</button><a class="button secondary" th:href="@{/productos}">Cancelar</a></div></form></main></body></html>

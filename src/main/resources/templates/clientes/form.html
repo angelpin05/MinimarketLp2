@@ -1,0 +1,8 @@
+<!DOCTYPE html><html lang="es" xmlns:th="http://www.thymeleaf.org"><head th:replace="~{fragments/layout :: head('Mantenimiento')}"></head><body><header th:replace="~{fragments/layout :: nav}"></header><main class="narrow">
+<h1 th:text="${id} == null ? 'Nuevo registro' : 'Editar registro'"></h1><form method="post" th:action="${id} == null ? @{/clientes/guardar} : @{/clientes/{id}/guardar(id=${id})}" th:object="${form}">
+<div th:replace="~{fragments/layout :: errors}"></div><label for="documento">DNI o RUC</label><input id="documento" type="text" th:field="*{documento}" required maxlength="11" pattern="[0-9]{8}|[0-9]{11}">
+<label for="nombre">Nombre</label><input id="nombre" type="text" th:field="*{nombre}" required maxlength="120">
+<label for="telefono">Teléfono</label><input id="telefono" type="tel" th:field="*{telefono}" maxlength="20">
+<label for="correo">Correo</label><input id="correo" type="email" th:field="*{correo}" maxlength="120">
+<label class="check"><input type="checkbox" th:field="*{activo}">Activo</label>
+<div class="form-actions"><button type="submit">Guardar</button><a class="button secondary" th:href="@{/clientes}">Cancelar</a></div></form></main></body></html>

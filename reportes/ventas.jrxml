@@ -1,0 +1,68 @@
+<jasperReport name="ventas" language="java" pageWidth="595" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="535" leftMargin="30" rightMargin="30" topMargin="30" bottomMargin="30" uuid="91f429e8-7990-4caf-bc79-1668390d29b9">
+	<style name="Base" default="true" fontName="DejaVu Sans" fontSize="10.0"/>
+	<parameter name="FILTRO" class="java.lang.String"/>
+	<parameter name="RESUMEN" class="java.lang.String"/>
+	<parameter name="EMISION" class="java.lang.String"/>
+	<field name="id" class="java.lang.String"/>
+	<field name="fecha" class="java.lang.String"/>
+	<field name="cliente" class="java.lang.String"/>
+	<field name="vendedor" class="java.lang.String"/>
+	<field name="total" class="java.lang.String"/>
+	<title height="85">
+		<element kind="staticText" uuid="6cb10246-1805-4754-9219-37ce26078cd3" x="0" y="0" width="535" height="30" fontSize="18.0" bold="true">
+			<text><![CDATA[Reporte de ventas]]></text>
+		</element>
+		<element kind="textField" uuid="bddb82e4-a218-4a70-a79c-aa4eeaf4bef9" x="0" y="33" width="535" height="25" textAdjust="StretchHeight" blankWhenNull="true">
+			<expression><![CDATA[$P{FILTRO}]]></expression>
+		</element>
+		<element kind="textField" uuid="69e6b189-cc0e-4ce4-83b0-b836e48fe1d6" x="0" y="60" width="535" height="20" textAdjust="StretchHeight" blankWhenNull="true">
+			<expression><![CDATA["Emitido en Lima: "+$P{EMISION}]]></expression>
+		</element>
+	</title>
+	<columnHeader height="28">
+		<element kind="staticText" uuid="ed730c66-51d0-4e40-b027-6b9cf6796b5b" x="0" y="0" width="40" height="26" fontSize="10.0" bold="true">
+			<text><![CDATA[Venta]]></text>
+		</element>
+		<element kind="staticText" uuid="730f56c1-0881-4f1d-b852-2a1747ffaebb" x="45" y="0" width="115" height="26" fontSize="10.0" bold="true">
+			<text><![CDATA[Fecha]]></text>
+		</element>
+		<element kind="staticText" uuid="2dc23b1a-c7ed-4fd1-b7f2-9eab5ad10488" x="165" y="0" width="185" height="26" fontSize="10.0" bold="true">
+			<text><![CDATA[Cliente]]></text>
+		</element>
+		<element kind="staticText" uuid="356954bb-b92a-4dd5-99a3-2fb0f18ea80f" x="355" y="0" width="95" height="26" fontSize="10.0" bold="true">
+			<text><![CDATA[Vendedor]]></text>
+		</element>
+		<element kind="staticText" uuid="6f83bedf-7e23-4798-9d93-83967ba5a620" x="455" y="0" width="75" height="26" fontSize="10.0" bold="true">
+			<text><![CDATA[S/]]></text>
+		</element>
+	</columnHeader>
+	<detail>
+		<band height="38">
+			<element kind="textField" uuid="b11ce3bc-7072-4f8a-a75e-d9aa3015ef3b" x="0" y="0" width="40" height="36" textAdjust="StretchHeight" blankWhenNull="true">
+				<expression><![CDATA[$F{id}]]></expression>
+			</element>
+			<element kind="textField" uuid="4079b322-edf0-451a-a170-3e5272b62552" x="45" y="0" width="115" height="36" textAdjust="StretchHeight" blankWhenNull="true">
+				<expression><![CDATA[$F{fecha}]]></expression>
+			</element>
+			<element kind="textField" uuid="e0f0a9ef-5b20-4f87-80f1-b8da6b52ff23" x="165" y="0" width="185" height="36" textAdjust="StretchHeight" blankWhenNull="true">
+				<expression><![CDATA[$F{cliente}]]></expression>
+			</element>
+			<element kind="textField" uuid="88292038-d5b6-4cbe-bbed-9ce06ff814b3" x="355" y="0" width="95" height="36" textAdjust="StretchHeight" blankWhenNull="true">
+				<expression><![CDATA[$F{vendedor}]]></expression>
+			</element>
+			<element kind="textField" uuid="43275130-d6b4-48dc-8246-8fee0daf1d7a" x="455" y="0" width="75" height="36" textAdjust="StretchHeight" blankWhenNull="true">
+				<expression><![CDATA[$F{total}]]></expression>
+			</element>
+		</band>
+	</detail>
+	<pageFooter height="24">
+		<element kind="textField" uuid="10ca5ca6-9b80-4e23-8d6b-1da94f2aa5e6" x="440" y="0" width="95" height="24" textAdjust="StretchHeight" blankWhenNull="true">
+			<expression><![CDATA["Página "+$V{PAGE_NUMBER}]]></expression>
+		</element>
+	</pageFooter>
+	<summary height="40">
+		<element kind="textField" uuid="3d468760-9921-429a-9598-ae6fab335293" x="0" y="8" width="535" height="30" textAdjust="StretchHeight" blankWhenNull="true">
+			<expression><![CDATA[$P{RESUMEN}]]></expression>
+		</element>
+	</summary>
+</jasperReport>

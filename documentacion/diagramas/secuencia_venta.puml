@@ -1,0 +1,37 @@
+@startuml
+skinparam dpi 200
+skinparam backgroundColor white
+skinparam defaultFontName DejaVu Sans
+skinparam defaultFontSize 14
+skinparam shadowing false
+actor Vendedor
+participant "VentaController" as C
+participant "VentaService" as S
+participant "Repositorios JPA" as R
+database MySQL
+Vendedor -> C : POST cliente, token y líneas
+C -> C : Validar formulario y sesión
+C -> S : registrar(form, usuarioAutenticado)
+activate S
+S -> MySQL : Iniciar transacción
+S -> R : Consultar cliente y usuario
+R -> MySQL : SELECT
+loop Productos ordenados por ID
+  S -> R : bloquearPorId(id)
+  R -> MySQL : SELECT con bloqueo de escritura
+  MySQL --> S : Producto y existencias
+  S -> S : Validar y calcular subtotal
+end
+alt Datos correctos
+  S -> R : Guardar venta y detalles
+  R -> MySQL : INSERT y UPDATE de stock
+  S -> MySQL : COMMIT
+  S --> C : ID de venta
+  C --> Vendedor : Redirigir a detalle
+else Regla de negocio incumplida
+  S -> MySQL : ROLLBACK
+  S --> C : ReglaNegocioException
+  C --> Vendedor : Formulario con mensaje
+end
+deactivate S
+@enduml

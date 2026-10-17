@@ -1,0 +1,30 @@
+@startuml
+skinparam dpi 200
+skinparam backgroundColor white
+skinparam defaultFontName DejaVu Sans
+skinparam defaultFontSize 14
+skinparam shadowing false
+|Vendedor|
+start
+:Elegir cliente y productos;
+:Ingresar cantidades y confirmar;
+|Aplicación|
+:Validar sesión y formulario;
+:Iniciar transacción;
+:Acumular productos repetidos;
+:Bloquear productos por ID;
+if (¿Cliente y productos activos?\n¿Hay stock suficiente?) then (Sí)
+  :Calcular subtotales y total;
+  :Guardar venta y detalles;
+  :Descontar stock;
+  :Confirmar transacción;
+  |Vendedor|
+  :Ver detalle de la venta;
+else (No)
+  |Aplicación|
+  :Revertir todos los cambios;
+  |Vendedor|
+  :Revisar mensaje y corregir;
+endif
+stop
+@enduml

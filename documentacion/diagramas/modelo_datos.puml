@@ -1,0 +1,71 @@
+@startuml
+!pragma layout smetana
+top to bottom direction
+skinparam dpi 200
+skinparam backgroundColor white
+skinparam defaultFontName DejaVu Sans
+skinparam defaultFontSize 14
+skinparam shadowing false
+hide methods
+entity categoria {
+  * id : BIGINT PK
+  --
+  nombre : VARCHAR(80) UQ
+  descripcion : VARCHAR(200)
+  activo : BOOLEAN
+}
+entity producto {
+  * id : BIGINT PK
+  --
+  codigo : VARCHAR(30) UQ
+  nombre : VARCHAR(120)
+  categoria_id : BIGINT FK
+  precio : DECIMAL(10,2)
+  stock : INT
+  stock_minimo : INT
+  activo : BOOLEAN
+  version : BIGINT
+}
+entity cliente {
+  * id : BIGINT PK
+  --
+  documento : VARCHAR(12) UQ
+  nombre : VARCHAR(120)
+  telefono : VARCHAR(20)
+  correo : VARCHAR(120)
+  activo : BOOLEAN
+}
+entity usuario {
+  * id : BIGINT PK
+  --
+  username : VARCHAR(50) UQ
+  nombre : VARCHAR(120)
+  password : VARCHAR(100)
+  rol : VARCHAR(20)
+  activo : BOOLEAN
+}
+entity venta {
+  * id : BIGINT PK
+  --
+  fecha : TIMESTAMP
+  cliente_id : BIGINT FK
+  usuario_id : BIGINT FK
+  total : DECIMAL(12,2)
+  token : VARCHAR(36) UQ
+}
+entity detalle_venta {
+  * id : BIGINT PK
+  --
+  venta_id : BIGINT FK
+  producto_id : BIGINT FK
+  nombre_producto : VARCHAR(120)
+  cantidad : INT
+  precio_unitario : DECIMAL(10,2)
+  subtotal : DECIMAL(12,2)
+}
+categoria ||--o{ producto
+cliente ||--o{ venta
+usuario ||--o{ venta
+venta ||--|{ detalle_venta
+producto ||--o{ detalle_venta
+@enduml
