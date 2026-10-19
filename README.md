@@ -131,11 +131,6 @@ Las pruebas usan H2 e incluyen reversión completa, concurrencia de ventas, prod
 
 Los resultados de la comprobación del paquete están en `documentacion/RESULTADOS_PRUEBAS.md`. Los dos PDF de `documentacion/ejemplos` muestran la venta de demostración y su inventario posterior.
 
-## Entrega académica
-
-Incluye en tu carpeta final el código, la base de datos o sus scripts, el informe DOCX, la presentación PPTX, los diagramas, las especificaciones de casos de uso, la URL de GitHub, la URL de Azure y el video de 3 a 5 minutos. El video no reemplaza la sustentación.
-
-En la semana 11 la guía pide al menos 50 % de avance. En la semana 14 pide 100 %. Antes de enviar el informe, completa docente, aula y semestre, y agrega evidencias reales del funcionamiento en tu equipo y del despliegue. El curso indica cuarto ciclo en el PDF, aunque tu matrícula personal puede ser distinta.
 
 ## Alcance
 
