@@ -9,8 +9,7 @@ Aplicación académica individual de ventas e inventario para **Lenguaje de Prog
 3. Configura MySQL. Este es el origen de datos previsto para la entrega del curso.
 4. Personaliza la carátula del informe y ensaya la sustentación.
 5. Sube el proyecto a tu repositorio y completa el despliegue real en Azure.
-
-El PDF pide grupos de 4 a 5 integrantes y permite excepciones del docente. La modalidad individual debe coordinarse con él. La base de datos H2 permite probar el proyecto, pero no reemplaza la demostración con MySQL y Azure exigida por la guía.
+  debe coordinarse con él. La base de datos H2 permite probar el proyecto, pero no reemplaza la demostración con MySQL y Azure exigida por la guía.
 
 ## Ejecutar la demostración
 
